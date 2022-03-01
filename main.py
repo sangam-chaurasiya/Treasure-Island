@@ -25,13 +25,20 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 print("\n\nWelcome to the Treasure Island!\n")
 print("Your mission is to find Treasure.")
 
-if input("You're at a crossroad, where do you want to go? Type \"left\" or \"right\". ").lower() == 'left':
-    if input("You've come to a lake. There is an island in the middle of the lake. Type \"wait\" to wait for a boat. Type \"swim\" to swim across. ").lower() == 'wait':
-        if input("You arrive at the island unharmed. There is a house with 3 doors. One red, one blue and one yellow. Which color do you choose? ").lower() == "yellow":
-            print("You found the Treasure, You Win!")
-        else:
-            print("You couldn't find right door, Game Over")
+choose_direction = input('You\'re at a cross road. Where do you want to go? Type "left" or "right" \n').lower()
+if choose_direction == "left":
+  choice_at_lake = input('You\'ve come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across. \n').lower()
+  if choice_at_lake == "wait":
+    choice_door = input("You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose? \n").lower()
+    if choose_door == "red":
+      print("It's a room full of fire. Game Over.")
+    elif choose_door == "yellow":
+      print("You found the treasure! You Win!")
+    elif choose_door == "blue":
+      print("You enter a room of beasts. Game Over.")
     else:
-        print("You got attacked by an angry trout, Game Over")
+      print("You chose a door that doesn't exist. Game Over.")
+  else:
+    print("You get attacked by an angry trout. Game Over.")
 else:
-    print("You fell into a hole, Game Over!")
+  print("You fell into a hole. Game Over.")
